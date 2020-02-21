@@ -18,21 +18,14 @@ public class CheckingIsEmailInvalid {
                         "Петя_Сивухин1997@mail.ru",
                         "zoDDycEfo!6296Mail.com",
                         "assAllIqeDy_8249@aiLcom",
-                        null,
-                        "qWe#r|tY1_0!@rU9.com",
-                        "qWertY1_0!@^`U9.com",
-                        "qWertY1_0!@rU9.co$"
+                        "qWe#r|tY1_0!@^`9.co$",
+                        "3"
                 };
     }
 
     @Test(dataProvider = "checkEmailIsInvalid")
     public void testCheckEmailIsInvalid(String email) {
-        try {
-            boolean actualResult = Email.isEmailCorrect(email);
-            Assert.assertFalse(actualResult, "Unexpected result");
-            System.out.println("FAILED: " + email);
-        } catch (RuntimeException e) {
-            System.out.println("FAILED: " + email);
-        }
+        boolean actualResult = Email.isEmailCorrect(email);
+        Assert.assertFalse(actualResult, "Unexpected result" + email);
     }
 }

@@ -9,127 +9,97 @@ public class CheckAssertions {
 
 
     @Test
-    public void firstTest() {
+    public void checkIsStringsEquals() {
         String actual = "Google";
         String expected = "Google";
         Assert.assertEquals(actual, expected);
     }
 
     @Test
-    public void secondTest() {
+    public void checkIsStringsNotEquals() {
         String actual = "Google";
         String expected = "Gooogle";
-        Assert.assertEquals(actual, expected);
+        Assert.assertNotEquals(actual, expected);
     }
 
     @Test
-    public void thirdTest() {
-        String actual = "Google";
-        String expected = "Gooogle";
-        Assert.assertEquals(actual, expected, "Strings are not equals");
-    }
-
-    @Test
-    public void fourthTest() {
+    public void checkIsStringsEqualsWithMessage() {
         String actual = "Google";
         String expected = "Google";
         Assert.assertEquals(actual, expected, "Strings are not equals");
     }
 
     @Test
-    public void fifthTest() {
-        Boolean actual = 5 > 4;
+    public void checkIsStringsNotEqualsWithMessage() {
+        String actual = "Google";
+        String expected = "Google";
+        Assert.assertEquals(actual, expected, "Strings are not equals");
+    }
+
+    @Test
+    public void checkIsBooleansEqualsWithMessage() {
+        Boolean actual = true;
         Boolean expected = true;
         Assert.assertEquals(actual, expected, "Strings are not equals");
     }
 
     @Test
-    public void sixthTest() {
-        Boolean actual = 5 < 4;
-        Boolean expected = true;
+    public void checkIsBooleansNotEqualsWithMessage() {
+        Boolean actual = false;
+        Boolean expected = Boolean.FALSE;
         Assert.assertEquals(actual, expected, "Strings are not equals");
     }
 
     @Test
-    public void seventhTest() {
+    public void checkIsBooleanArrayListsEqualsWithMessage() {
         ArrayList<Boolean> booleanArrayList1 = new ArrayList<Boolean>();
         ArrayList<Boolean> booleanArrayList2 = new ArrayList<Boolean>();
 
         booleanArrayList1.add(true);
-        booleanArrayList1.add("Hello".length() != 0);
+        booleanArrayList1.add(true);
 
-        booleanArrayList2.add(2 < 3);
+        booleanArrayList2.add(true);
         booleanArrayList2.add(true);
         Assert.assertEquals(booleanArrayList1, booleanArrayList2, "Collections are not equals");
     }
 
     @Test
-    public void eightTest() {
+    public void checkIsBooleanArrayListsNotEqualsWithMessage() {
         ArrayList<Boolean> booleanArrayList1 = new ArrayList<Boolean>();
         ArrayList<Boolean> booleanArrayList2 = new ArrayList<Boolean>();
 
         booleanArrayList1.add(true);
-        booleanArrayList1.add("Hello".length() != 0);
+        booleanArrayList1.add(true);
 
-        booleanArrayList2.add(2 < 3);
-        booleanArrayList2.add(false);
+        booleanArrayList2.add(true);
+        booleanArrayList2.add(Boolean.TRUE);
         Assert.assertEquals(booleanArrayList1, booleanArrayList2, "Collections are not equals");
     }
 
     @Test
-    public void ninthTest() {
+    public void checkIsBooleanArrayListsEmptyWithMessage() {
         ArrayList<Boolean> booleanArrayList1 = new ArrayList<Boolean>();
-        boolean condition = booleanArrayList1.isEmpty();
-        Assert.assertTrue(condition);
+        booleanArrayList1.add(true);
+        Assert.assertTrue(booleanArrayList1.contains(true), "Collection is empty");
     }
 
     @Test
-    public void tenthTest() {
+    public void checkIsBooleanArrayListNotEmpty() {
         ArrayList<Boolean> booleanArrayList1 = new ArrayList<Boolean>();
-        booleanArrayList1.add(false);
-        boolean condition = booleanArrayList1.isEmpty();
-        Assert.assertTrue(condition);
+        booleanArrayList1.add(Boolean.TRUE);
+        Assert.assertFalse(booleanArrayList1.isEmpty(), "Collection is empty");
+    }
+
+
+    @Test
+    public void checkIsBooleanArrayListEmptyWithMessage() {
+        ArrayList<Boolean> booleanArrayList1 = new ArrayList<Boolean>();
+        booleanArrayList1.add(true);
+        Assert.assertFalse(booleanArrayList1.isEmpty(), "Collection is empty");
     }
 
     @Test
-    public void eleventhTest() {
-        ArrayList<Boolean> booleanArrayList1 = new ArrayList<Boolean>();
-        boolean condition = booleanArrayList1.isEmpty();
-        Assert.assertTrue(condition, "Collection is empty");
-    }
-
-    @Test
-    public void twelfthTest() {
-        ArrayList<Boolean> booleanArrayList1 = new ArrayList<Boolean>();
-        booleanArrayList1.add(false);
-        boolean condition = booleanArrayList1.isEmpty();
-        Assert.assertTrue(condition, "Collection is empty");
-    }
-//
-    @Test
-    public void thirteenthTest() {
-        ArrayList<Boolean> booleanArrayList1 = new ArrayList<Boolean>();
-        boolean condition = booleanArrayList1.isEmpty();
-        Assert.assertFalse(condition);
-    }
-
-    @Test
-    public void fourteenthTest() {
-        ArrayList<Boolean> booleanArrayList1 = new ArrayList<Boolean>();
-        booleanArrayList1.add(false);
-        boolean condition = booleanArrayList1.isEmpty();
-        Assert.assertFalse(condition);
-    }
-
-    @Test
-    public void fifteenthTest() {
-        ArrayList<Boolean> booleanArrayList1 = new ArrayList<Boolean>();
-        boolean condition = booleanArrayList1.isEmpty();
-        Assert.assertFalse(condition, "Collection is empty");
-    }
-
-    @Test
-    public void sixteenthTest() {
+    public void checkIsBooleanArrayListNotEmptyWithMessage() {
         ArrayList<Boolean> booleanArrayList1 = new ArrayList<Boolean>();
         booleanArrayList1.add(false);
         boolean condition = booleanArrayList1.isEmpty();

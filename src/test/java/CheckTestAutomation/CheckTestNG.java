@@ -3,16 +3,13 @@ package CheckTestAutomation;
 
 import org.testng.annotations.Test;
 
-public class CheckJUnit {
+public class CheckTestNG {
 
     @Test
-    public void firstTest() {
+    public void checkIs() {
         int x = 10;
         int y = 7;
-        if (x > y) {
-            System.out.println(true);
-
-        }
+            System.out.println(x > y);
     }
 
     @Test(expectedExceptions = ArithmeticException.class)

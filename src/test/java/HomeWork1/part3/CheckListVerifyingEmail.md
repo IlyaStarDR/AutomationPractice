@@ -11,5 +11,4 @@
 5. Fill in confusing the Latin alphabet with the Cyrillic alphabet
 6. Fill in without "@"
 7. Fill in without "."
-8. Fill in null
-9. Fill in with incorrect values 3 intervals
+8. Fill in with incorrect values 3 intervals
