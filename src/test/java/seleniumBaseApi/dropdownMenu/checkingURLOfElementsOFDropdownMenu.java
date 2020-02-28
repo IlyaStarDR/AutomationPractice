@@ -10,7 +10,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -18,8 +17,8 @@ public class checkingURLOfElementsOFDropdownMenu {
     private static WebDriver chromeDriver;
     private static final int DELAY = 0;
     private static final String URL_TO_SITE = "https://formy-project.herokuapp.com/dropdown";
-    private static final String PATH_TO_DROPDOWN_MENU_BY_ID = "dropdownMenuButton";
     private static final String PATH_TO_ITEMS_OF_DROPDOWN_MENU_BY_XPATH = "//div[@id=\"navbarNavDropdown\"]//div[@class=\"dropdown-menu\"]/a";
+    private static final String ATTRIBUTE_OF_ITEM_IN_DROPDOWN = "href";
     List<WebElement> listOfWebElements;
 
     @BeforeClass
@@ -32,35 +31,25 @@ public class checkingURLOfElementsOFDropdownMenu {
 
     @Test
     public void checkUrlsOfElementsOFDropdownMenuAreEqual() {
-        WebElement dropDownMenuButton = chromeDriver.findElement(By.id(PATH_TO_DROPDOWN_MENU_BY_ID));
         listOfWebElements = chromeDriver.findElements(By.xpath(PATH_TO_ITEMS_OF_DROPDOWN_MENU_BY_XPATH));
-
 
         ArrayList<String> expectedUrls = new ArrayList<String>();
         for (WebElement element : listOfWebElements) {
-            expectedUrls.add(element.getAttribute("href"));
-            System.out.println(expectedUrls);
+            expectedUrls.add(element.getAttribute(ATTRIBUTE_OF_ITEM_IN_DROPDOWN));
         }
 
-//      doesn't work
         ArrayList<String> actualUrls = new ArrayList<String>();
-        for (WebElement element : listOfWebElements) {
-            dropDownMenuButton.click();
-            element.click();
+        for (int i = 0; i < listOfWebElements.size(); i++) {
+            chromeDriver.navigate().to(expectedUrls.get(i));
             actualUrls.add(chromeDriver.getCurrentUrl());
-            chromeDriver.navigate().back();
-
         }
-//        Assert.assertEquals(actualUrls, expectedUrls);
+        Assert.assertEquals(actualUrls, expectedUrls, "URL's are not equals");
+    }
 
-//}
-
-//    @AfterClass
-//    public void tearDown() {
-//        if (chromeDriver != null) {
-//            chromeDriver.quit();
-//        }
-//    }
-
+    @AfterClass
+    public void tearDown() {
+        if (chromeDriver != null) {
+            chromeDriver.quit();
+        }
     }
 }
