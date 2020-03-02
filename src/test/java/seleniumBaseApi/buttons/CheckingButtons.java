@@ -88,10 +88,10 @@ public class CheckingButtons {
         chromeDriver.findElement(By.xpath("//a[contains(text(), \"Dropdown link 2\")]")).click();
     }
 
-//    @AfterClass
-//    public void tearDown() {
-//        if (chromeDriver != null) {
-//            chromeDriver.quit();
-//        }
-//    }
+    @AfterClass
+    public void tearDown() {
+        if (chromeDriver != null) {
+            chromeDriver.quit();
+        }
+    }
 }

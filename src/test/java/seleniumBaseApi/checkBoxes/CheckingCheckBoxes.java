@@ -12,13 +12,13 @@ import java.util.concurrent.TimeUnit;
 public class CheckingCheckBoxes {
     private static WebDriver chromeDriver;
     private static final int DELAY = 0;
-
+    private static final String URL_TO_SITE = "https://formy-project.herokuapp.com/checkbox";
 
     @BeforeClass
     public static void navigateChromeDriverToUrl() {
         chromeDriver = new ChromeDriver();
         chromeDriver.manage().window().maximize();
-        chromeDriver.navigate().to("https://formy-project.herokuapp.com/checkbox");
+        chromeDriver.navigate().to(URL_TO_SITE);
         chromeDriver.manage().timeouts().implicitlyWait(DELAY, TimeUnit.SECONDS);
     }
 
@@ -33,10 +33,10 @@ public class CheckingCheckBoxes {
         chromeDriver.findElement(By.cssSelector(path)).click();
     }
 
-//    @AfterClass
-//    public void tearDown() {
-//        if (chromeDriver != null) {
-//            chromeDriver.quit();
-//        }
-//    }
+    @AfterClass
+    public void tearDown() {
+        if (chromeDriver != null) {
+            chromeDriver.quit();
+        }
+    }
 }

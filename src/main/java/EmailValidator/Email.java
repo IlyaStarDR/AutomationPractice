@@ -10,3 +10,4 @@ public class Email {
         return matcher.matches();
     }
 }
+
