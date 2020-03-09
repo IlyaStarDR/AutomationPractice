@@ -6,9 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class LinkedInPage {
-    private WebDriver driver;
-    private final static String URL = "https://www.linkedin.com/login?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin";
-
+    private final static String URL_TO_LINKEDIN = "https://www.linkedin.com/login?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin";
     @FindBy(xpath = "//*[@type=\"submit\"]")
     WebElement buttonSubmit;
     @FindBy(id = "username")
@@ -17,6 +15,7 @@ public class LinkedInPage {
     WebElement password;
     @FindBy(id = "error-for-username")
     WebElement errorLogin;
+    private WebDriver driver;
 
     public LinkedInPage(WebDriver driver) {
         this.driver = driver;
@@ -27,8 +26,8 @@ public class LinkedInPage {
         driver.manage().window().maximize();
     }
 
-    public void navigateToUrl() {
-        driver.navigate().to(URL);
+    public void navigateToUrlLinkedIn() {
+        driver.navigate().to(URL_TO_LINKEDIN);
     }
 
     public void setLogin(String login) {

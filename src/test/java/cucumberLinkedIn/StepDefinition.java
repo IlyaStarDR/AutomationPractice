@@ -12,12 +12,12 @@ public class StepDefinition {
     private LinkedInPage linkedInPage;
 
 
-    @Given("Open the Chrome and navigate to url")
+    @Given("^Open the Chrome and navigate to url$")
     public void openChromeAndNavigateToUrl() {
         WebDriver driver = new ChromeDriver();
         linkedInPage = new LinkedInPage(driver);
         linkedInPage.setUp();
-        linkedInPage.navigateToUrl();
+        linkedInPage.navigateToUrlLinkedIn();
     }
 
     @When("^Enter the Username and Password$")
