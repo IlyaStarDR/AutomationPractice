@@ -10,8 +10,9 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 public class CheckingButtons {
-    private static WebDriver chromeDriver;
     private static final int DELAY = 0;
+    private static WebDriver chromeDriver;
+
 
     @BeforeClass
     public static void navigateChromeDriverToUrl() {
@@ -78,20 +79,22 @@ public class CheckingButtons {
 
     @Test(priority = 11)
     public void clickOnDropdownAndClickOnLinkOne() {
-        chromeDriver.findElement(By.id("btnGroupDrop1")).click();
+        clickOnDropdownButton();
         chromeDriver.findElement(By.xpath("//a[contains(text(), \"Dropdown link 1\")]")).click();
     }
 
     @Test(priority = 12)
     public void clickOnDropdownAndClickOnLinkTwo() {
-        chromeDriver.findElement(By.id("btnGroupDrop1")).click();
+        clickOnDropdownButton();
         chromeDriver.findElement(By.xpath("//a[contains(text(), \"Dropdown link 2\")]")).click();
+    }
+
+    private void clickOnDropdownButton() {
+        chromeDriver.findElement(By.id("btnGroupDrop1")).click();
     }
 
     @AfterClass
     public void tearDown() {
-        if (chromeDriver != null) {
-            chromeDriver.quit();
-        }
+        chromeDriver.quit();
     }
 }

@@ -10,9 +10,9 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 public class CheckingCheckBoxes {
-    private static WebDriver chromeDriver;
     private static final int DELAY = 0;
     private static final String URL_TO_SITE = "https://formy-project.herokuapp.com/checkbox";
+    private static WebDriver chromeDriver;
 
     @BeforeClass
     public static void navigateChromeDriverToUrl() {
@@ -23,20 +23,18 @@ public class CheckingCheckBoxes {
     }
 
     @Test(dataProvider = "getXpathSelector", dataProviderClass = DataProviderXpath.class)
-    public void clickOnAllCheckBoxesUsingXpath(String path) {
-        chromeDriver.findElement(By.xpath(path)).click();
+    public void clickOnAllCheckBoxesUsingXpath(By path) {
+        chromeDriver.findElement(path).click();
 
     }
 
     @Test(dataProvider = "getCssSelector", dataProviderClass = DataProviderCSS.class)
-    public void clickOnAllCheckBoxesUsingCSS(String path) {
-        chromeDriver.findElement(By.cssSelector(path)).click();
+    public void clickOnAllCheckBoxesUsingCSS(By path) {
+        chromeDriver.findElement(path).click();
     }
 
     @AfterClass
     public void tearDown() {
-        if (chromeDriver != null) {
-            chromeDriver.quit();
-        }
+        chromeDriver.quit();
     }
 }
