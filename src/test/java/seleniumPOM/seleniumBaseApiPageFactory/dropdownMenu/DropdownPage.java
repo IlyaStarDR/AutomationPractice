@@ -11,15 +11,13 @@ import java.util.List;
 
 public class DropdownPage {
     private static final String URL_TO_SITE = "https://formy-project.herokuapp.com/dropdown";
-    private WebDriver driver;
     private static final int DELAY = 10;
-    private WebDriverWait wait;
-
     @FindBy(id = "dropdownMenuButton")
     WebElement dropdown;
-
     @FindBy(xpath = "//button[@id=\"dropdownMenuButton\"]/following-sibling::div/a")
     List<WebElement> urls;
+    private WebDriver driver;
+    private WebDriverWait wait;
 
     public DropdownPage(WebDriver driver) {
         this.driver = driver;

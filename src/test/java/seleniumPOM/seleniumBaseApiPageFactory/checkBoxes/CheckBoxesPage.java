@@ -8,10 +8,9 @@ import org.openqa.selenium.support.PageFactory;
 
 
 public class CheckBoxesPage {
-    private WebDriver driver;
-
     @FindBy
     WebElement checkBox;
+    private WebDriver driver;
 
 
     public CheckBoxesPage(WebDriver driver) {
@@ -19,8 +18,12 @@ public class CheckBoxesPage {
         PageFactory.initElements(driver, this);
     }
 
-    public void clickOnCheckBox(String xpath) {
-        checkBox = driver.findElement(By.xpath(xpath));
+    public void clickOnCheckBox(By xpath) {
+        checkBox = driver.findElement(xpath);
         checkBox.click();
+    }
+
+    public boolean isCheckBoxSelected() {
+        return checkBox.isSelected();
     }
 }

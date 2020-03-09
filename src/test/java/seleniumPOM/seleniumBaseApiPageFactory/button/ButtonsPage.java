@@ -6,11 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class ButtonsPage {
-    private WebDriver driver;
-
     @FindBy(xpath = "//button[contains(text(), \"Primary\")]")
     WebElement buttonPrimary;
-
     @FindBy(className = "btn-success")
     WebElement buttonSuccess;
     @FindBy(className = "btn-info")
@@ -37,6 +34,7 @@ public class ButtonsPage {
     WebElement linkOne;
     @FindBy(xpath = "//a[contains(text(), \"Dropdown link 2\")]")
     WebElement linkTwo;
+    private WebDriver driver;
 
 
     public ButtonsPage(WebDriver driver) {

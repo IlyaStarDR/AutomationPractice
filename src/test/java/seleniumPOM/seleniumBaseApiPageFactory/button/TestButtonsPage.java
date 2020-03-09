@@ -37,9 +37,6 @@ public class TestButtonsPage {
 
     @AfterClass
     public void tearDown() {
-        if (chromeDriver != null) {
-            chromeDriver.quit();
-        }
+        chromeDriver.quit();
     }
-
 }

@@ -1,20 +1,19 @@
 package seleniumPOM.seleniumBaseApiPageFactory.dropdownMenu;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-
 import java.util.concurrent.TimeUnit;
 
 public class TestDropdownPage {
-    private static WebDriver chromeDriver;
     private static final int DELAY = 0;
+    private static WebDriver chromeDriver;
     private DropdownPage dropdownPage;
+
     @BeforeClass
     public static void navigateChromeDriverToUrl() {
         chromeDriver = new ChromeDriver();
@@ -33,9 +32,6 @@ public class TestDropdownPage {
 
     @AfterClass
     public void tearDown() {
-        if (chromeDriver != null) {
-            chromeDriver.quit();
-        }
+        chromeDriver.quit();
     }
-
 }

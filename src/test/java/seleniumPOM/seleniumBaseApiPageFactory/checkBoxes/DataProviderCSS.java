@@ -1,5 +1,6 @@
 package seleniumPOM.seleniumBaseApiPageFactory.checkBoxes;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;
 
 public class DataProviderCSS {
@@ -7,9 +8,9 @@ public class DataProviderCSS {
     @DataProvider
     public static Object[][] getCssSelector() {
         return new Object[][]{
-                {"input[id=\"checkbox-1\"]"},
-                {"input[id=\"checkbox-2\"]"},
-                {"input[id=\"checkbox-3\"]"}
+                {By.cssSelector("input[id=\"checkbox-1\"]")},
+                {By.cssSelector("input[id=\"checkbox-2\"]")},
+                {By.cssSelector("input[id=\"checkbox-3\"]")}
         };
     }
 }

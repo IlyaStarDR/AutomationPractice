@@ -9,9 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.List;
 
 public class FormPage {
-    public final static String URL = "https://formy-project.herokuapp.com/form";
-    private WebDriver driver;
-
+    public final static String URL_TO_FORM = "https://formy-project.herokuapp.com/form";
     @FindBy(id = "first-name")
     WebElement firstName;
     @FindBy(id = "last-name")
@@ -28,15 +26,13 @@ public class FormPage {
     WebElement datepicker;
     @FindBy(className = "btn-primary")
     WebElement submit;
+    private WebDriver driver;
 
 
     public FormPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-    }
-
-    public void navigate() {
-        driver.navigate().to(URL);
+        driver.navigate().to(URL_TO_FORM);
     }
 
     public void fillFirstName(String name) {
@@ -80,7 +76,8 @@ public class FormPage {
         datepicker.sendKeys(date);
     }
 
-    public void clickSubmit() {
+    public ThanksPage clickSubmit() {
         submit.submit();
+        return new ThanksPage(driver);
     }
 }
